@@ -1,0 +1,45 @@
+.fields {
+    display: flex;
+    align-items: flex-start;
+}
+
+.fields > div {
+    background-color: rgb(59, 56, 53);
+    margin: 10px;
+    padding: 20px;
+    font-size: 100%;
+}
+
+table {
+    table-layout: auto;
+    border: 1px solid black;
+    padding: 2em 4em 2em 4em;
+    align-content: center;
+}
+label{
+    display: inline-block;
+    clear: left;
+    width: 250px;
+    text-align: right;
+}
+input {
+  display: inline-block;
+}
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+h3 {
+    display: inline;
+    float: left;
+}
+h4 {
+    display: inline;
+    float: right;
+}
+li {
+    display: inline;
+  }
+/*body {background-color: skyblue;}*/

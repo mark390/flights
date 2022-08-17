@@ -102,11 +102,12 @@
         </form>
         @endforeach
       </table>
-      <h3>Total Actual Flight Hours: {{ \App\Models\ActualFlight::sum('total_hours') }}</h3><br>
-      <h3>Total Actual Day Hours: {{ \App\Models\ActualFlight::sum('day') }}</h3><br>
-      <h3>Total Actual Night Hours: {{ \App\Models\ActualFlight::sum('night') }}</h3><br>
-      <h3>Total Actual Instrument Hours: {{ \App\Models\ActualFlight::sum('instrument') }}</h3><br>
-      <h3>Total Actual Pilot in Command Hours: {{ \App\Models\ActualFlight::sum('pic') }}</h3>
+      <?php $user = Auth::user() ?>
+      <h3>Total Actual Flight H<ours: {{ \App\Models\ActualFlight::where('userID', $user->id)->sum('total_hours') }}</h3><br>
+      <h3>Total Actual Day Hours: {{ \App\Models\ActualFlight::where('userID', $user->id)->sum('day') }}</h3><br>
+      <h3>Total Actual Night Hours: {{ \App\Models\ActualFlight::where('userID', $user->id)->sum('night') }}</h3><br>
+      <h3>Total Actual Instrument Hours: {{ \App\Models\ActualFlight::where('userID', $user->id)->sum('instrument') }}</h3><br>
+      <h3>Total Actual Pilot in Command Hours: {{ \App\Models\ActualFlight::where('userID', $user->id)->sum('pic') }}</h3>
     </div>
   <br><br>
   

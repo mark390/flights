@@ -103,11 +103,12 @@
         </form>
         @endforeach
       </table>
-      <h3>Total Actual Flight Hours: {{ \App\Models\SimulatedFlight::sum('total_hours') }}</h3><br>
-      <h3>Total Actual Day Hours: {{ \App\Models\SimulatedFlight::sum('day') }}</h3><br>
-      <h3>Total Actual Night Hours: {{ \App\Models\SimulatedFlight::sum('night') }}</h3><br>
-      <h3>Total Actual Instrument Hours: {{ \App\Models\SimulatedFlight::sum('instrument') }}</h3><br>
-      <h3>Total Actual Pilot in Command Hours: {{ \App\Models\SimulatedFlight::sum('pic') }}</h3>
+      <?php $user = Auth::user() ?>
+      <h3>Total Actual Flight Hours: {{ \App\Models\SimulatedFlight::where('userID', $user->id)->sum('total_hours') }}</h3><br>
+      <h3>Total Actual Day Hours: {{ \App\Models\SimulatedFlight::where('userID', $user->id)->sum('day') }}</h3><br>
+      <h3>Total Actual Night Hours: {{ \App\Models\SimulatedFlight::where('userID', $user->id)->sum('night') }}</h3><br>
+      <h3>Total Actual Instrument Hours: {{ \App\Models\SimulatedFlight::where('userID', $user->id)->sum('instrument') }}</h3><br>
+      <h3>Total Actual Pilot in Command Hours: {{ \App\Models\SimulatedFlight::where('userID', $user->id)->sum('pic') }}</h3>
     </div>
   <br><br>
   {{ $simulated->links() }}

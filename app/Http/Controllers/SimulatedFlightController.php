@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SimulatedFlight;
+use Illuminate\Support\Facades\Auth;
 
 class SimulatedFlightController extends Controller
 {
     public function index () {
+        $user = Auth::user();
         return view('simulated', [
-            'simulated' => SimulatedFlight::all()
+            'simulated' => SimulatedFlight::where('userID', $user->id)->get()
         ]);
     }
 
@@ -20,7 +22,8 @@ class SimulatedFlightController extends Controller
 }
     public function create(Request $request) {
         $flight = new SimulatedFlight();
-        $flight->userID = 1;
+        $user = Auth::user();
+        $flight->userID = $user->id;
         $flight->date = $request->input('date');
         $flight->departure = $request->input('dep');
         $flight->arrival = $request->input('arr');

@@ -16,8 +16,13 @@
               <a class="nav-link" href="/actual">Actual Flight Log</a>
               <a class="nav-link" href="/simulated">Simulated Flight Log</a>
               <a class="nav-link" href="/metar">Flight Planning</a>
-              <a class="nav-link" href="/actual">Register</a>
+              @auth
+              <span>Welcome {{auth()->user()->name}}</span>
+              <a class="nav-link" href="/logout">Logout</a>
+              @else
+              <a class="nav-link" href="/register">Register</a>
               <a class="nav-link" href="/actual">Login</a>
+              @endauth
             </div>
           </div>
         </div>

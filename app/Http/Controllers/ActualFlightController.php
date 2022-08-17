@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\ActualFlight;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ActualFlightController extends Controller
 {
     public function index () {
+        $user = Auth::user();
         return view('actual', [
-            'actual' => ActualFlight::all()
+            'actual' => ActualFlight::where('userID', $user->id)->get()
         ]);
     }
 
@@ -22,7 +24,8 @@ class ActualFlightController extends Controller
 
     public function create(Request $request) {
         $flight = new ActualFlight();
-        $flight->userID = 1;
+        $user = Auth::user();
+        $flight->userID = $user->id;
         $flight->date = $request->input('date');
         $flight->departure = $request->input('dep');
         $flight->arrival = $request->input('arr');

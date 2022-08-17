@@ -98,5 +98,4 @@
       <h3>Total Actual Pilot in Command Hours: {{ \App\Models\ActualFlight::sum('pic') }}</h3>
     </div>
   <br><br>
-
   @endsection

@@ -2,58 +2,7 @@
 
 @section('content')
 
-<h1 class="text-center">Mark's Flight LogBook</h1>
-
-<form action="/add" method="POST" class="row g-3">
-  <div class="col-md-2">
-    <label for="date" class="form-label">Date:</label>
-    <input type="date" name="date" class="form-control" id="date">
-  </div>
-  <div class="col-md-2">
-    <label for="aircraft" class="form-label">Aircraft:</label>
-    <input type="text" name="aircraft" class="form-control" id="aircraft">
-  </div>
-  <div class="col-md-2">
-    <label for="type" class="form-label">Aircraft Type:</label>
-    <input type="text" name="type" class="form-control" id="type">
-  </div>
-  <div class="col-md-2">
-    <label for="dep" class="form-label">Departure:</label>
-    <input type="text" name="dep" class="form-control" id="dep">
-  </div>
-  <div class="col-md-2">
-    <label for="arr" class="form-label">Arrival:</label>
-    <input type="text" name="arr" class="form-control" id="arr">
-  </div>
-  <div class="col-md-2">
-    <label for="day" class="form-label">Day Hours:</label>
-    <input type="text" name="day" class="form-control" id="day">
-  </div>
-  <div class="col-md-2">
-    <label for="night" class="form-label">Night Hours:</label>
-    <input type="number" min="0" step=".01" name="night" class="form-control" id="night">
-  </div>
-  <div class="col-md-2">
-    <label for="inst" class="form-label">Instrument Hours:</label>
-    <input type="number" min="0" step=".01" name="inst" class="form-control" id="inst">
-  </div>
-  <div class="col-md-2">
-    <label for="pic" class="form-label">Pilot in Command Hours:</label>
-    <input type="number" min="0" step=".01" name="pic" class="form-control" id="pic">
-  </div>
-  <div class="col-md-2">
-    <label for="total" class="form-label">Total Hours:</label>
-    <input type="number" min="0" step=".01" name="total" class="form-control" id="total">
-  </div>
-  <div class="col-md-8">
-    <label for="comments" class="form-label">Comments:</label>
-    <input type="text" name="comments" class="form-control" id="comments">
-  </div>
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Add</button>
-    <input type="hidden" name="_token" value="{{csrf_token()}}">
-  </div>
-</form><br><br>
+<h1 class="text-center">Search Results</h1>
 
 <form class="row g-3" action="/search" method=POST>
   <div class="mb-3">

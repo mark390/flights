@@ -11,7 +11,7 @@ class SimulatedFlightController extends Controller
     public function index () {
         $user = Auth::user();
         return view('simulated', [
-            'simulated' => SimulatedFlight::where('userID', $user->id)->get()
+            'simulated' => SimulatedFlight::where('userID', $user->id)->paginate(10)
         ]);
     }
 
@@ -37,5 +37,12 @@ class SimulatedFlightController extends Controller
         $flight->comments = $request->input('comments');
         $flight->save();
         return redirect()->action([SimulatedFlightController::class, 'index']);;
+    }
+
+    public function search(Request $request) {
+        $user = Auth::user();
+        return view('ssearch', [
+            'simulated' => SimulatedFlight::where('userID', $user->id)->where('departure', '=', $request->input('search'))->paginate(2)
+        ]);
     }
 }

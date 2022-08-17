@@ -12,7 +12,7 @@ class ActualFlightController extends Controller
     public function index () {
         $user = Auth::user();
         return view('actual', [
-            'actual' => ActualFlight::where('userID', $user->id)->get()
+            'actual' => ActualFlight::where('userID', $user->id)->paginate(2)
         ]);
     }
 
@@ -39,5 +39,12 @@ class ActualFlightController extends Controller
         $flight->comments = $request->input('comments');
         $flight->save();
         return redirect()->action([ActualFlightController::class, 'index']);;
+    }
+
+    public function search(Request $request) {
+        $user = Auth::user();
+        return view('asearch', [
+            'actual' => ActualFlight::where('userID', $user->id)->where('departure', '=', $request->input('search'))->paginate(2)
+        ]);
     }
 }

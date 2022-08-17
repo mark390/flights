@@ -55,6 +55,17 @@
     </div>
   </form><br><br>
 
+  <form class="row g-3" action="/searchs" method=POST>
+    <div class="mb-3">
+      <label for="search" class="form-label">Departure Airport Search</label>
+      <input type="text" class="form-control" id="search" placeholder="Search" name="search">
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Search</button>
+      <input type="hidden" name="_token" value="{{csrf_token()}}">
+    </div>
+  </form>
+
     <div class="table" style="table, th, td { border: 1px solid black; }">
       <table id="publictable">
         <tr>
@@ -99,5 +110,5 @@
       <h3>Total Actual Pilot in Command Hours: {{ \App\Models\SimulatedFlight::sum('pic') }}</h3>
     </div>
   <br><br>
-
+  {{ $simulated->links() }}
   @endsection

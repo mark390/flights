@@ -36,6 +36,10 @@ Route::post('/add', [ActualFlightController::class,  'create'])->middleware('aut
 
 Route::post('/adds', [SimulatedFlightController::class,  'create'])->middleware('auth');
 
+Route::post('/search', [ActualFlightController::class,  'search'])->middleware('auth');
+
+Route::post('/searchs', [SimulatedFlightController::class,  'search'])->middleware('auth');
+
 Route::get('/metar', [External::class,'metar'])->middleware('auth');
 
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');

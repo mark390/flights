@@ -15,7 +15,7 @@
               <a class="nav-link active" aria-current="page" href="/actual">Home</a>
               <a class="nav-link" href="/actual">Actual Flight Log</a>
               <a class="nav-link" href="/simulated">Simulated Flight Log</a>
-              <a class="nav-link" href="/actual">Flight Planning</a>
+              <a class="nav-link" href="/metar">Flight Planning</a>
               <a class="nav-link" href="/actual">Register</a>
               <a class="nav-link" href="/actual">Login</a>
             </div>

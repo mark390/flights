@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActualFlightController;
+use App\Http\Controllers\External;
 use App\Http\Controllers\SimulatedFlightController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,5 @@ Route::post('/searchs', [SimulatedFlightController::class,  'search']);
 Route::post('/add', [ActualFlightController::class,  'create']);
 
 Route::post('/adds', [SimulatedFlightController::class,  'create']);
+
+Route::get('/metar', [External::class,'metar']);

@@ -19,6 +19,8 @@
 
     <h2>Current Weather Information</h2>
     <h3>Airport Name: {{$name}}</h3><h3>Metar: {{$metar}}</h3><h3>Flight Conditions: {{$condition}}</h3><h3>Forecasted Conditions: {{$forecast}}</h3>
+  <br><br>
+    <h3><a href={{$airnav}}>AirNav Airport Information</a>
 
 </div>
 

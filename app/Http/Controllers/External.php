@@ -20,6 +20,7 @@ class External extends Controller
     $stat = 'https://avwx.rest/api/station/'.$station.'?token='.$key;
     $met = 'https://avwx.rest/api/metar/'.$station.'?token='.$key;
     $taf = 'https://avwx.rest/api/taf/'.$station.'?token='.$key;
+    $airnav = 'https://www.airnav.com/airport/'.$station;
     $json_data_s = file_get_contents($stat);
     $json_data_m = file_get_contents($met);
     $json_data_t = file_get_contents($taf);
@@ -39,7 +40,7 @@ class External extends Controller
     }
     
     return view('planning', [
-        'metar' => $raw, 'condition' => $flightCondition,  'name' => $name, 'forecast' => $future
+        'metar' => $raw, 'condition' => $flightCondition,  'name' => $name, 'forecast' => $future, 'airnav' => $airnav
         //'current_temp' => $temp, 'direction' => $dir, 'speed' => $speed, 'vis' => $vis, 'alt' => $alt, 'condition' => $cond
     ]);
   }

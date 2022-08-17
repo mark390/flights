@@ -2,22 +2,41 @@
 
 @section('content')
 
-<h1 class="text-center">Login Page</h1>
+    <form action="/auth" method="POST">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <div class="mb-md-5 mt-md-4 pb-5">
+  
+                <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                <p class="text-white-50 mb-5">Please enter your email and password!</p>
+                
+                <div class="form-outline form-white mb-4">
+                  <input type="email" id="email" name="email" class="form-control form-control-lg" />
+                  <label class="form-label" for="typeEmailX">Email</label>
+                </div>
+  
+                <div class="form-outline form-white mb-4">
+                  <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                  <label class="form-label" for="typePasswordX">Password</label>
+                </div>  
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+              <div>
+                <p class="mb-0">Don't have an account? <a href="/register" class="text-white-50 fw-bold">Sign Up</a>
+                </p>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</form>
 
-<form action="/authenticate" method="POST" class="row g-3">
-  <div class="col-md-4">
-    <label for="email" class="form-label">Email:</label>
-    <input type="email" name="email" class="form-control" id="email" value={{old('email')}}>
-  </div>
-  <div class="col-md-6">
-    <label for="password" class="form-label">Password:</label>
-    <input type="password" name="password" class="form-control" id="password" value={{old('password')}}>
-  </div>
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Login</button>
-    <input type="hidden" name="_token" value="{{csrf_token()}}">
-  </div>
-  Don't have an account?
-  <a href="/register">Register</a>
-</form><br><br>
 @endsection
